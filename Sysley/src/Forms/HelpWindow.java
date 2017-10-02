@@ -16,6 +16,7 @@ public class HelpWindow extends javax.swing.JFrame {
      */
     public HelpWindow() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -122,7 +123,7 @@ public class HelpWindow extends javax.swing.JFrame {
         String Descrip="Sysley es un sistema dinamico creado con la utilidad de facilitar\n la implementacion de leyes en guatemala dando las funcionalidades\nnecesarias al usuario para la creacion de parlamentos\n leyes y reglamentos de la constitucion del estado de Guatemala.";
         
         jTextPane1.setText(Descrip);
-        jLabel4.setText("Alex Rodriguez C. 1053016 ");
+        jLabel4.setText("Alexander Rodriguez C. 1053016 ");
         jLabel5.setText("Felipe Gonzalez C.1252616");
     }//GEN-LAST:event_formWindowOpened
 

@@ -38,7 +38,7 @@ public class Lista<E> implements ListInt<E> {
 	}
 
 	public E set(int i, E e) {
-		checkIndex(i, size);
+		//checkIndex(i, size);
 		E temp = data[i];
 		data[i] = e;
 		return temp;
@@ -56,23 +56,10 @@ public class Lista<E> implements ListInt<E> {
                        size++;                      
                        }
                        
-                   }// start by shifting rightmost
-		//	data[k+1] = data[k];
-		//data[i] = e; // ready to place the new element size++;  
-<<<<<<< HEAD
-               
-                }
-		
-		
-	}
-
-	public E remove(int i) throws IndexOutOfBoundsException {
+                   }
+        
+        public E remove( int i ) throws IndexOutOfBoundsException {
 		//checkIndex(i, size);
-=======
-               	
-	public E remove( int i ) throws IndexOutOfBoundsException {
-		checkIndex(i, size);
->>>>>>> 5e6c7c2998e01de7309dbc6fc5d822ddb97232b1
 		E temp = data[i];
 		for (int k=i; k < size-1; k++)
 			data[k] = data[k+1];
@@ -80,14 +67,15 @@ public class Lista<E> implements ListInt<E> {
 		size--;
 		return temp;
 	}
-	
-	protected void checkIndex(int i, int n) throws IndexOutOfBoundsException { // metodo revisa que el index sea valido a ingresar
+        
+        protected void checkIndex(int i, int n) throws IndexOutOfBoundsException { // metodo revisa que el index sea valido a ingresar
 		if (i <= 0 || i >= n)
 		throw new IndexOutOfBoundsException("Illegal index: " + i);
-	}
+	}  
+    }           	
+	
+	
+	
 
-   // public int getContCapacidad() {
-    //    return contCapacidad;
-    //}
+  
 
-}

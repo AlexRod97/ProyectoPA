@@ -28,8 +28,8 @@ public class Usuarios {
         this.parlamentario = parlamentario;
     }
 
-    public String[] getAsesores() {
-        return asesores;
+    public String getAsesores(int i) {
+        return asesores[i];
     }
 
     public void setAsesores(String[] asesores) {
@@ -42,13 +42,6 @@ public class Usuarios {
 
     public void setId(String id) {
         this.id = id;
-    }
-    
-    //Codigo para creacion de Leyes
-    
-    
-    
-    
-    
-    
+    }    
+
 } // Clase Termina
