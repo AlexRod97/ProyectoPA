@@ -7,7 +7,7 @@ package Classes;
 
 /**
  *
- * @author rodri
+ * @author Felipe_gb
  */
 public class Lista<E> implements ListInt<E> {
 	
@@ -17,7 +17,7 @@ public class Lista<E> implements ListInt<E> {
 	//private int contCapacidad = 0; 
         
 	public Lista() {
-		this(CAPACITY);
+		this(CAPACITY); //  da la capacidad del array 16
 	}
 
 	public Lista(int capacity) {
@@ -48,16 +48,18 @@ public class Lista<E> implements ListInt<E> {
 		//checkIndex(i, size);
 		if (size >= data.length) // not enough capacity
 			throw new IllegalStateException("Array is full");
-                else{
-                   for (int k=0; k <= i; k++) {
-                   if (data[k]== null) {
-                       data[k] =e;
-                       size++;                       
-                   }
+                 else{
+                  // for (int k=0; k <= i; k++) {
+                  // if (data[k]== null) {
+                       //data[k] =e;
+                       data[size] = e; 
+                       size++;                      
+                       }
                        
                    }// start by shifting rightmost
 		//	data[k+1] = data[k];
 		//data[i] = e; // ready to place the new element size++;  
+<<<<<<< HEAD
                
                 }
 		
@@ -66,6 +68,11 @@ public class Lista<E> implements ListInt<E> {
 
 	public E remove(int i) throws IndexOutOfBoundsException {
 		//checkIndex(i, size);
+=======
+               	
+	public E remove( int i ) throws IndexOutOfBoundsException {
+		checkIndex(i, size);
+>>>>>>> 5e6c7c2998e01de7309dbc6fc5d822ddb97232b1
 		E temp = data[i];
 		for (int k=i; k < size-1; k++)
 			data[k] = data[k+1];
@@ -74,7 +81,7 @@ public class Lista<E> implements ListInt<E> {
 		return temp;
 	}
 	
-	protected void checkIndex(int i, int n) throws IndexOutOfBoundsException {
+	protected void checkIndex(int i, int n) throws IndexOutOfBoundsException { // metodo revisa que el index sea valido a ingresar
 		if (i <= 0 || i >= n)
 		throw new IndexOutOfBoundsException("Illegal index: " + i);
 	}
