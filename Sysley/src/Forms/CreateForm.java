@@ -17,9 +17,8 @@ public class CreateForm extends javax.swing.JFrame {
      */
     
     
-   public Lista cList = new Lista();  
+   public Lista cList = new Lista();  // crea objeto de tipo (Lista<E>)
   
-   
    int cantidadUsuarios = 0; 
    
     public CreateForm(Lista pLista, int parametro) {
@@ -195,7 +194,7 @@ public class CreateForm extends javax.swing.JFrame {
     private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
         // TODO add your handling code here:
         String parlamentario; 
-        String[] asesores = new String[8];       
+        String[] asesores = new String[8];      //crea un array string de 8 lugares para los asesores 
         /*
         parlamentario = textField1.getText(); 
         asesores[0] = textField2.getText(); 
@@ -220,7 +219,7 @@ public class CreateForm extends javax.swing.JFrame {
       // */      
                
         Usuarios newUser = new Usuarios(parlamentario, asesores, "Usuario " + cantidadUsuarios); 
-        cList.add(cantidadUsuarios,newUser);    
+        cList.add(cantidadUsuarios, newUser);     // manda la cantidad de usuarios mas el nuevo usuario a la clase Lista<E>
         cantidadUsuarios++;
         MainForm main = new MainForm(this.cList); 
         main.show();

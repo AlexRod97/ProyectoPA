@@ -13,7 +13,7 @@ public class Usuarios {
     private String parlamentario; 
     private String[] asesores = new String[8]; 
     private String id; 
-
+    
     public Usuarios(String parlamentario, String[] asesores,String id) {
         this.parlamentario = parlamentario;
         this.asesores = asesores; 
@@ -44,7 +44,11 @@ public class Usuarios {
         this.id = id;
     }
     
+    //Codigo para creacion de Leyes
     
     
     
-}
+    
+    
+    
+} // Clase Termina
