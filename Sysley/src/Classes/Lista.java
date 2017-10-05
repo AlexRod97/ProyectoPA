@@ -7,7 +7,7 @@ package Classes;
 
 /**
  *
- * @author Felipe_gb
+ * @author AlexRod97
  */
 public class Lista<E> implements ListInt<E> {
 	

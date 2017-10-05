@@ -39,6 +39,7 @@ public class MainForm extends javax.swing.JFrame {
         this.CreateLawPanel1.setVisible(false); 
         this.ModifyLawPanel.setVisible(false);
         this.DeleteLawPanel.setVisible(false);
+        this.PrestamosPanel.setVisible(false);
         this.jMenuItem2.setEnabled(false);
         this.jMenuItem3.setEnabled(false);    
     }
@@ -151,6 +152,19 @@ public class MainForm extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
+        jLayeredPane2 = new javax.swing.JLayeredPane();
+        PrestamosPanel = new javax.swing.JPanel();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboBox6 = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jLabel7 = new javax.swing.JLabel();
+        jComboBox7 = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        DevolucionesPanel = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -444,7 +458,7 @@ public class MainForm extends javax.swing.JFrame {
                     .addGroup(ModifyPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(ModifyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ModifyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(textField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -513,7 +527,6 @@ public class MainForm extends javax.swing.JFrame {
 
         label25.setText("Parlamentario:");
 
-        button6.setActionCommand("");
         button6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         button6.setLabel("Eliminar");
         button6.addActionListener(new java.awt.event.ActionListener() {
@@ -977,6 +990,177 @@ public class MainForm extends javax.swing.JFrame {
                     .addGap(13, 13, 13)))
         );
 
+        PrestamosPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Préstamos"));
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "    " }));
+
+        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "    " }));
+        jComboBox6.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox6ItemStateChanged(evt);
+            }
+        });
+
+        jLabel2.setText("Grupo usuario:");
+
+        jLabel6.setText("Usuario personal:");
+
+        jRadioButton1.setText("Reglamento");
+
+        jRadioButton2.setText("Ley");
+        jRadioButton2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioButton2ItemStateChanged(evt);
+            }
+        });
+        jRadioButton2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jRadioButton2StateChanged(evt);
+            }
+        });
+
+        jLabel7.setText("Opción a prestar: ");
+
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "   " }));
+        jComboBox7.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox7ItemStateChanged(evt);
+            }
+        });
+
+        jButton1.setText("Prestar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PrestamosPanelLayout = new javax.swing.GroupLayout(PrestamosPanel);
+        PrestamosPanel.setLayout(PrestamosPanelLayout);
+        PrestamosPanelLayout.setHorizontalGroup(
+            PrestamosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PrestamosPanelLayout.createSequentialGroup()
+                .addGroup(PrestamosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PrestamosPanelLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addGroup(PrestamosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PrestamosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(PrestamosPanelLayout.createSequentialGroup()
+                                    .addGroup(PrestamosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(PrestamosPanelLayout.createSequentialGroup()
+                                            .addGroup(PrestamosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel2)
+                                                .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(78, 78, 78))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PrestamosPanelLayout.createSequentialGroup()
+                                            .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(105, 105, 105)))
+                                    .addGroup(PrestamosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(PrestamosPanelLayout.createSequentialGroup()
+                                .addGap(87, 87, 87)
+                                .addComponent(jLabel7))))
+                    .addGroup(PrestamosPanelLayout.createSequentialGroup()
+                        .addGap(143, 143, 143)
+                        .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PrestamosPanelLayout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(166, Short.MAX_VALUE))
+        );
+        PrestamosPanelLayout.setVerticalGroup(
+            PrestamosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PrestamosPanelLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(PrestamosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PrestamosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PrestamosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton2)
+                    .addComponent(jRadioButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout DevolucionesPanelLayout = new javax.swing.GroupLayout(DevolucionesPanel);
+        DevolucionesPanel.setLayout(DevolucionesPanelLayout);
+        DevolucionesPanelLayout.setHorizontalGroup(
+            DevolucionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        DevolucionesPanelLayout.setVerticalGroup(
+            DevolucionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jLayeredPane2.setLayer(PrestamosPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(DevolucionesPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jPanel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
+        jLayeredPane2.setLayout(jLayeredPane2Layout);
+        jLayeredPane2Layout.setHorizontalGroup(
+            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 541, Short.MAX_VALUE)
+            .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(PrestamosPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(DevolucionesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jLayeredPane2Layout.setVerticalGroup(
+            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 423, Short.MAX_VALUE)
+            .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(PrestamosPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(DevolucionesPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
         jMenu1.setText("Usuarios");
 
         jMenuItem1.setText("Crear");
@@ -1038,15 +1222,20 @@ public class MainForm extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu4.setText("Reglamentos");
+        jMenu4.setText("Operaciones");
 
-        jMenuItem7.setText("Crear");
+        jMenuItem7.setText("Préstamo");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem7);
 
-        jMenuItem8.setText("Modificar");
+        jMenuItem8.setText("Préstamo por lote");
         jMenu4.add(jMenuItem8);
 
-        jMenuItem9.setText("Eliminar");
+        jMenuItem9.setText("Devolución");
         jMenu4.add(jMenuItem9);
 
         jMenuBar1.add(jMenu4);
@@ -1076,12 +1265,17 @@ public class MainForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(76, 76, 76)
                     .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(77, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1093,6 +1287,11 @@ public class MainForm extends javax.swing.JFrame {
                     .addGap(12, 12, 12)
                     .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
@@ -1491,7 +1690,7 @@ public class MainForm extends javax.swing.JFrame {
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
-        int tamanio =  lawList.size();  
+       int tamanio =  lawList.size();  
        Leyes pLeyes;    
        
         this.jComboBox3.setSelectedIndex(-1); 
@@ -1572,18 +1771,97 @@ public class MainForm extends javax.swing.JFrame {
         // TODO add your handling code here:
        int tamanio =  lawList.size();  
        Leyes pLaw;    
-       this.jComboBox5.setSelectedIndex(-1); 
+       this.jComboBox6.setSelectedIndex(-1); 
        for(int i = 0; i < tamanio; i++) {         
            pLaw = (Leyes) lawList.get(i);           
-           this.jComboBox5.addItem(pLaw.getLey());           
+           this.jComboBox6.addItem(pLaw.getLey());           
        }  
-       this.jComboBox5.removeItemAt(0);    
+       this.jComboBox6.removeItemAt(0);    
        this.clearLawDelete();       
-       this.jComboBox5.setMaximumRowCount(3);             
+       this.jComboBox6.setMaximumRowCount(3);             
        this.DeleteLawPanel.setVisible(true);
        this.jMenu1.enable(false);
        this.jMenu2.enable(false);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+       int tamanio =  usersList.size();  
+       Usuarios pUser;    
+       this.jComboBox6.setSelectedIndex(-1); 
+       for(int i = 0; i < tamanio; i++) {         
+           pUser = (Usuarios) usersList.get(i);           
+           this.jComboBox6.addItem(pUser.getId());          
+       }       
+       this.jComboBox6.removeItemAt(0);      
+       //this.clearModify();  
+       this.jComboBox6.setMaximumRowCount(3);     
+       this.PrestamosPanel.setVisible(true);       
+       this.jMenu1.enable(true);
+       this.jMenu2.enable(true);    
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jComboBox6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox6ItemStateChanged
+        // TODO add your handling code here:
+        int selectedItemIndex = jComboBox6.getSelectedIndex();  
+       jComboBox4.removeAllItems();
+       jComboBox4.addItem("");         
+        if (selectedItemIndex >= 0) {
+        tempUser = (Usuarios) this.usersList.get(selectedItemIndex); 
+        jComboBox4.addItem(tempUser.getParlamentario());
+        for(int i = 0; i < 8; i++) {
+            if (tempUser.getAsesores(i) != "" ) {
+               jComboBox4.addItem(tempUser.getAsesores(i)); 
+            }
+        }          
+        jComboBox4.removeItemAt(0); 
+        jComboBox4.setMaximumRowCount(3);   
+        }
+    }//GEN-LAST:event_jComboBox6ItemStateChanged
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        boolean prueba; 
+                
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox7ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox7ItemStateChanged
+        // TODO add your handling code here:
+  
+        
+        
+    }//GEN-LAST:event_jComboBox7ItemStateChanged
+
+    private void jRadioButton2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton2ItemStateChanged
+        // TODO add your handling code here:
+        
+        boolean seleccion; 
+        seleccion = jRadioButton2.isSelected(); 
+        if (seleccion) {
+            
+        int tamanio =  lawList.size();  
+        Leyes pLeyes;    
+       
+        this.jComboBox7.setSelectedIndex(-1); 
+        for(int i = 0; i < tamanio; i++) {         
+           pLeyes = (Leyes) lawList.get(i);           
+           this.jComboBox7.addItem(pLeyes.getLey());          
+        }
+       
+       this.jComboBox7.removeItemAt(0);      
+       //this.clearLawModify();        
+       this.jComboBox7.setMaximumRowCount(3);  
+        }  
+        else {
+       jComboBox7.removeAllItems();
+       jComboBox7.addItem("");       
+        }   
+ 
+    }//GEN-LAST:event_jRadioButton2ItemStateChanged
+
+    private void jRadioButton2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jRadioButton2StateChanged
+        // TODO add your handling code here: 
+    }//GEN-LAST:event_jRadioButton2StateChanged
 
     /**
      * @param args the command line arguments
@@ -1625,8 +1903,10 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel CreatePanel;
     private javax.swing.JPanel DeleteLawPanel;
     private javax.swing.JPanel DeletePanel;
+    private javax.swing.JPanel DevolucionesPanel;
     private javax.swing.JPanel ModifyLawPanel;
     private javax.swing.JPanel ModifyPanel;
+    private javax.swing.JPanel PrestamosPanel;
     private java.awt.Button button1;
     private java.awt.Button button10;
     private java.awt.Button button13;
@@ -1635,15 +1915,23 @@ public class MainForm extends javax.swing.JFrame {
     private java.awt.Button button4;
     private java.awt.Button button6;
     private java.awt.Button button9;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JComboBox<String> jComboBox6;
+    private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JLayeredPane jLayeredPane3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -1660,6 +1948,9 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

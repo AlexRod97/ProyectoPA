@@ -13,6 +13,7 @@ public class Usuarios {
     private String parlamentario; 
     private String[] asesores = new String[8]; 
     private String id; 
+    private int prestamos = 0;    
     
     public Usuarios(String parlamentario, String[] asesores,String id) {
         this.parlamentario = parlamentario;
@@ -42,6 +43,24 @@ public class Usuarios {
 
     public void setId(String id) {
         this.id = id;
-    }    
+    }   
+    
+       public int getPrestamos() {
+        return prestamos;
+    }
+
+    public boolean setPrestamos(int prestamos) {
+       int prestamo = getPrestamos(); 
+       
+       if(prestamo > 2) {
+           return false;
+       }
+       else {
+           this.prestamos = prestamos+1;
+           return true; 
+       }
+    } 
+    
+   
 
 } // Clase Termina
