@@ -11,38 +11,37 @@ package Classes;
  */
 public class Leyes {
     
-    public String NombreLey;
-    public String ReglamentoLey;
+    public String nombreLey;
+    public String reglamentoLey;
     private String id;
 
    // public String IndexName[] = new String[50];
 
    
-    public Leyes(String Ley, String Descripcion, String id) { // CONSTRUCTOR
-        this.NombreLey = Ley;
-        this.ReglamentoLey = Descripcion;
-        this.id = id;
+    public Leyes(String Ley, String Descripcion) { // CONSTRUCTOR
+        this.nombreLey = Ley;
+        this.reglamentoLey = Descripcion;        
     }
     
     
-    public String GetLey(){
-        return this.NombreLey;
+    public String getLey(){
+        return this.nombreLey;
     }
-    public String GetDescripcion(){
-        return this.ReglamentoLey;
+    public String getDescripcion(){
+        return this.reglamentoLey;
     }
-     public String GetID(){
+     public String getID(){
         return this.id;
     }
     
     
-    public void SetLey(String Ley){
-        this.NombreLey = Ley;
+    public void setLey(String Ley){
+        this.nombreLey = Ley;
     }
-    public void SetDescripcion(String Descripcion){
-        this.ReglamentoLey = Descripcion;
+    public void setDescripcion(String Descripcion){
+        this.reglamentoLey = Descripcion;
     }
-    public void SetID(String id){
+    public void setID(String id){
         this.id = id;
     }
     

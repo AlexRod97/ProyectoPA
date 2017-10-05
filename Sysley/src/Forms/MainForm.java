@@ -6,7 +6,7 @@
 package Forms;
 import Classes.Lista; 
 import Classes.Usuarios; 
-
+import Classes.Leyes; 
 /**
  *
  * @author rodri
@@ -21,16 +21,26 @@ public class MainForm extends javax.swing.JFrame {
  
     
   private final Lista usersList = new Lista();   
-  Lista lawList = new Lista(); 
-  int cantidadUsuarios = 0;  
-  int outterIndex = 0;   
-
+  private Lista lawList = new Lista(); 
+  private Usuarios tempUser; 
+  private Leyes tempLaw; 
+  
+  private int cantidadUsuarios = 0;  
+  private int cantidadLeyes = 0;
+   
+  private int outterIndex =-1; 
+  
     public MainForm(Usuarios pUsuario) {        
         initComponents();
         this.setLocationRelativeTo(null);   
         this.CreatePanel.setVisible(false); 
         this.ModifyPanel.setVisible(false);
         this.DeletePanel.setVisible(false);
+        this.CreateLawPanel1.setVisible(false); 
+        this.ModifyLawPanel.setVisible(false);
+        this.DeleteLawPanel.setVisible(false);
+        this.jMenuItem2.setEnabled(false);
+        this.jMenuItem3.setEnabled(false);    
     }
 
     /**
@@ -42,8 +52,6 @@ public class MainForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDialog1 = new javax.swing.JDialog();
-        jLabel2 = new javax.swing.JLabel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         CreatePanel = new javax.swing.JPanel();
         textField1 = new java.awt.TextField();
@@ -107,13 +115,42 @@ public class MainForm extends javax.swing.JFrame {
         textField25 = new java.awt.TextField();
         label25 = new java.awt.Label();
         textField26 = new java.awt.TextField();
-        button5 = new java.awt.Button();
         textField27 = new java.awt.TextField();
         button6 = new java.awt.Button();
         label26 = new java.awt.Label();
         label27 = new java.awt.Label();
         jToggleButton3 = new javax.swing.JToggleButton();
         jComboBox2 = new javax.swing.JComboBox<>();
+        jLayeredPane3 = new javax.swing.JLayeredPane();
+        CreateLawPanel1 = new javax.swing.JPanel();
+        textField29 = new java.awt.TextField();
+        label35 = new java.awt.Label();
+        button9 = new java.awt.Button();
+        label36 = new java.awt.Label();
+        jLabel3 = new javax.swing.JLabel();
+        jToggleButton4 = new javax.swing.JToggleButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        ModifyLawPanel = new javax.swing.JPanel();
+        textField37 = new java.awt.TextField();
+        label43 = new java.awt.Label();
+        button10 = new java.awt.Button();
+        label44 = new java.awt.Label();
+        jToggleButton5 = new javax.swing.JToggleButton();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jLabel4 = new javax.swing.JLabel();
+        DeleteLawPanel = new javax.swing.JPanel();
+        textField38 = new java.awt.TextField();
+        label45 = new java.awt.Label();
+        button13 = new java.awt.Button();
+        label55 = new java.awt.Label();
+        jToggleButton7 = new javax.swing.JToggleButton();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea3 = new javax.swing.JTextArea();
+        jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -130,28 +167,12 @@ public class MainForm extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
 
-        jLabel2.setText("ERROR");
-
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(164, Short.MAX_VALUE))
-        );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDialog1Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(120, Short.MAX_VALUE))
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SysLey");
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
@@ -299,7 +320,7 @@ public class MainForm extends javax.swing.JFrame {
                                         .addComponent(textField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(textField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
                         .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(CreatePanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -308,6 +329,8 @@ public class MainForm extends javax.swing.JFrame {
         );
 
         ModifyPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Modificar Usuario"));
+
+        textField10.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         label10.setText("Asesor 2:");
 
@@ -349,6 +372,20 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "   " }));
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
+            }
+        });
+        jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jComboBox1MouseEntered(evt);
+            }
+        });
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -360,18 +397,13 @@ public class MainForm extends javax.swing.JFrame {
         ModifyPanelLayout.setHorizontalGroup(
             ModifyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ModifyPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(label16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, Short.MAX_VALUE)
-                .addGroup(ModifyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textField10, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ModifyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ModifyPanelLayout.createSequentialGroup()
-                        .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(136, 136, 136))
-                    .addGroup(ModifyPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(label16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(textField10, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
                         .addGroup(ModifyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -390,24 +422,29 @@ public class MainForm extends javax.swing.JFrame {
                             .addComponent(textField17, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(textField16, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(textField15, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textField18, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifyPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(textField18, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifyPanelLayout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(ModifyPanelLayout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(31, 31, 31)
                 .addComponent(jToggleButton2)
                 .addContainerGap())
-            .addGroup(ModifyPanelLayout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ModifyPanelLayout.setVerticalGroup(
             ModifyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ModifyPanelLayout.createSequentialGroup()
-                .addComponent(jToggleButton2)
-                .addGap(10, 10, 10)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addGroup(ModifyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jToggleButton2)
+                    .addGroup(ModifyPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                 .addGroup(ModifyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ModifyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(textField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -428,33 +465,32 @@ public class MainForm extends javax.swing.JFrame {
                                 .addComponent(textField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(textField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(ModifyPanelLayout.createSequentialGroup()
-                                .addComponent(label18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(label11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(ModifyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(ModifyPanelLayout.createSequentialGroup()
-                                        .addGroup(ModifyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(ModifyPanelLayout.createSequentialGroup()
-                                                .addGroup(ModifyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addGroup(ModifyPanelLayout.createSequentialGroup()
-                                                        .addComponent(label13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGap(30, 30, 30))
-                                                    .addComponent(label12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(30, 30, 30))
-                                            .addComponent(label14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(label15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(ModifyPanelLayout.createSequentialGroup()
-                                        .addComponent(textField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(15, 15, 15)
-                                        .addComponent(textField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(textField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(textField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addGap(44, 44, 44)
+                            .addGroup(ModifyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(ModifyPanelLayout.createSequentialGroup()
+                                    .addGroup(ModifyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(ModifyPanelLayout.createSequentialGroup()
+                                            .addGroup(ModifyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addGroup(ModifyPanelLayout.createSequentialGroup()
+                                                    .addComponent(label13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(30, 30, 30))
+                                                .addComponent(label12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(30, 30, 30))
+                                        .addComponent(label14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(label15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(ModifyPanelLayout.createSequentialGroup()
+                                    .addComponent(label18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(label11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(textField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(15, 15, 15)
+                                    .addComponent(textField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(textField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(textField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(52, 52, 52)
                 .addGroup(ModifyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(button3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(button4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -477,14 +513,9 @@ public class MainForm extends javax.swing.JFrame {
 
         label25.setText("Parlamentario:");
 
-        button5.setLabel("Borrar");
-        button5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button5ActionPerformed(evt);
-            }
-        });
-
-        button6.setLabel("Guardar");
+        button6.setActionCommand("");
+        button6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        button6.setLabel("Eliminar");
         button6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 button6ActionPerformed(evt);
@@ -503,6 +534,19 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "" }));
+        jComboBox2.setSelectedIndex(-1);
+        jComboBox2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox2ItemStateChanged(evt);
+            }
+        });
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout DeletePanelLayout = new javax.swing.GroupLayout(DeletePanel);
         DeletePanel.setLayout(DeletePanelLayout);
         DeletePanelLayout.setHorizontalGroup(
@@ -511,42 +555,37 @@ public class MainForm extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(label25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, Short.MAX_VALUE)
-                .addGroup(DeletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textField19, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button6, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(textField19, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(DeletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(DeletePanelLayout.createSequentialGroup()
-                        .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(136, 136, 136))
-                    .addGroup(DeletePanelLayout.createSequentialGroup()
-                        .addGroup(DeletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(label26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(DeletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textField20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textField21, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textField23, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textField22, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textField26, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textField25, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textField24, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textField27, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                    .addComponent(label26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(DeletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textField20, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textField21, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textField23, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textField22, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textField26, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textField25, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textField24, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textField27, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 22, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DeletePanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jToggleButton3)
                 .addContainerGap())
             .addGroup(DeletePanelLayout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(136, 136, 136)
+                .addGroup(DeletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(button6, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         DeletePanelLayout.setVerticalGroup(
@@ -555,7 +594,7 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(jToggleButton3)
                 .addGap(10, 10, 10)
                 .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addGroup(DeletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DeletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(textField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -602,11 +641,9 @@ public class MainForm extends javax.swing.JFrame {
                                         .addComponent(textField26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(textField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addGap(44, 44, 44)
-                .addGroup(DeletePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
+                .addGap(42, 42, 42)
+                .addComponent(button6, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26))
         );
 
         jLayeredPane1.setLayer(CreatePanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -620,7 +657,7 @@ public class MainForm extends javax.swing.JFrame {
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(CreatePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addGap(22, 22, 22)
@@ -645,6 +682,299 @@ public class MainForm extends javax.swing.JFrame {
                     .addContainerGap()
                     .addComponent(DeletePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
+        );
+
+        CreateLawPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Crear Ley"));
+
+        label35.setText("Ley:");
+
+        button9.setLabel("Guardar");
+        button9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button9ActionPerformed(evt);
+            }
+        });
+
+        label36.setText("Reglamento:");
+
+        jLabel3.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
+        jLabel3.setText("New Data");
+
+        jToggleButton4.setSelected(true);
+        jToggleButton4.setText("x");
+        jToggleButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton4ActionPerformed(evt);
+            }
+        });
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        javax.swing.GroupLayout CreateLawPanel1Layout = new javax.swing.GroupLayout(CreateLawPanel1);
+        CreateLawPanel1.setLayout(CreateLawPanel1Layout);
+        CreateLawPanel1Layout.setHorizontalGroup(
+            CreateLawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CreateLawPanel1Layout.createSequentialGroup()
+                .addGroup(CreateLawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CreateLawPanel1Layout.createSequentialGroup()
+                        .addGap(175, 175, 175)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(CreateLawPanel1Layout.createSequentialGroup()
+                        .addGroup(CreateLawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(label35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(1, 1, 1)
+                        .addGroup(CreateLawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(CreateLawPanel1Layout.createSequentialGroup()
+                                .addComponent(textField29, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(176, 176, 176)
+                                .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(CreateLawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(button9, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        CreateLawPanel1Layout.setVerticalGroup(
+            CreateLawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CreateLawPanel1Layout.createSequentialGroup()
+                .addGroup(CreateLawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton4))
+                .addGap(23, 23, 23)
+                .addGroup(CreateLawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(textField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(CreateLawPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label36, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(button9, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(234, Short.MAX_VALUE))
+        );
+
+        ModifyLawPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Modificar Ley"));
+
+        label43.setText("Ley:");
+
+        button10.setLabel("Guardar");
+        button10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button10ActionPerformed(evt);
+            }
+        });
+
+        label44.setText("Reglamento:");
+
+        jToggleButton5.setText("x");
+        jToggleButton5.setToolTipText("");
+        jToggleButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton5ActionPerformed(evt);
+            }
+        });
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "   " }));
+        jComboBox3.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox3ItemStateChanged(evt);
+            }
+        });
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
+
+        jLabel4.setText("Seleccionar");
+
+        javax.swing.GroupLayout ModifyLawPanelLayout = new javax.swing.GroupLayout(ModifyLawPanel);
+        ModifyLawPanel.setLayout(ModifyLawPanelLayout);
+        ModifyLawPanelLayout.setHorizontalGroup(
+            ModifyLawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModifyLawPanelLayout.createSequentialGroup()
+                .addGroup(ModifyLawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ModifyLawPanelLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(ModifyLawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(ModifyLawPanelLayout.createSequentialGroup()
+                                .addComponent(label44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(23, 23, 23)
+                                .addComponent(jScrollPane2))
+                            .addGroup(ModifyLawPanelLayout.createSequentialGroup()
+                                .addGroup(ModifyLawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(label43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4))
+                                .addGap(32, 32, 32)
+                                .addGroup(ModifyLawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(ModifyLawPanelLayout.createSequentialGroup()
+                                        .addComponent(textField37, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(224, 224, 224))
+                                    .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 68, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifyLawPanelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(ModifyLawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jToggleButton5, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(button10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
+        );
+        ModifyLawPanelLayout.setVerticalGroup(
+            ModifyLawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ModifyLawPanelLayout.createSequentialGroup()
+                .addComponent(jToggleButton5)
+                .addGap(10, 10, 10)
+                .addGroup(ModifyLawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(ModifyLawPanelLayout.createSequentialGroup()
+                        .addGroup(ModifyLawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(34, 34, 34)
+                        .addComponent(label43, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textField37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(ModifyLawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label44, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                .addComponent(button10, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        DeleteLawPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Eliminar Ley"));
+
+        label45.setText("Ley:");
+
+        button13.setLabel("Guardar");
+        button13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button13ActionPerformed(evt);
+            }
+        });
+
+        label55.setText("Reglamento:");
+
+        jToggleButton7.setText("x");
+        jToggleButton7.setToolTipText("");
+        jToggleButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton7ActionPerformed(evt);
+            }
+        });
+
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "  " }));
+        jComboBox5.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox5ItemStateChanged(evt);
+            }
+        });
+        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox5ActionPerformed(evt);
+            }
+        });
+
+        jTextArea3.setColumns(20);
+        jTextArea3.setRows(5);
+        jScrollPane3.setViewportView(jTextArea3);
+
+        jLabel5.setText("Seleccionar");
+
+        javax.swing.GroupLayout DeleteLawPanelLayout = new javax.swing.GroupLayout(DeleteLawPanel);
+        DeleteLawPanel.setLayout(DeleteLawPanelLayout);
+        DeleteLawPanelLayout.setHorizontalGroup(
+            DeleteLawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DeleteLawPanelLayout.createSequentialGroup()
+                .addGroup(DeleteLawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DeleteLawPanelLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(DeleteLawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(DeleteLawPanelLayout.createSequentialGroup()
+                                .addComponent(label55, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(23, 23, 23)
+                                .addComponent(jScrollPane3))
+                            .addGroup(DeleteLawPanelLayout.createSequentialGroup()
+                                .addGroup(DeleteLawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(label45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5))
+                                .addGap(32, 32, 32)
+                                .addGroup(DeleteLawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(DeleteLawPanelLayout.createSequentialGroup()
+                                        .addComponent(textField38, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(224, 224, 224))
+                                    .addComponent(jComboBox5, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 68, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DeleteLawPanelLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(DeleteLawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jToggleButton7, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(button13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
+        );
+        DeleteLawPanelLayout.setVerticalGroup(
+            DeleteLawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DeleteLawPanelLayout.createSequentialGroup()
+                .addComponent(jToggleButton7)
+                .addGap(10, 10, 10)
+                .addGroup(DeleteLawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(DeleteLawPanelLayout.createSequentialGroup()
+                        .addGroup(DeleteLawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addGap(34, 34, 34)
+                        .addComponent(label45, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(textField38, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(DeleteLawPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label55, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                .addComponent(button13, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jLayeredPane3.setLayer(CreateLawPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(ModifyLawPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(DeleteLawPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane3Layout = new javax.swing.GroupLayout(jLayeredPane3);
+        jLayeredPane3.setLayout(jLayeredPane3Layout);
+        jLayeredPane3Layout.setHorizontalGroup(
+            jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(CreateLawPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(143, Short.MAX_VALUE))
+            .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                    .addGap(22, 22, 22)
+                    .addComponent(ModifyLawPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(22, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane3Layout.createSequentialGroup()
+                    .addContainerGap(32, Short.MAX_VALUE)
+                    .addComponent(DeleteLawPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(12, 12, 12)))
+        );
+        jLayeredPane3Layout.setVerticalGroup(
+            jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(CreateLawPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(ModifyLawPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                    .addGap(13, 13, 13)
+                    .addComponent(DeleteLawPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(13, 13, 13)))
         );
 
         jMenu1.setText("Usuarios");
@@ -683,12 +1013,27 @@ public class MainForm extends javax.swing.JFrame {
         jMenu2.setText("Leyes");
 
         jMenuItem4.setText("Crear");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem4);
 
         jMenuItem5.setText("Modificar");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem5);
 
         jMenuItem6.setText("Eliminar");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem6);
 
         jMenuBar1.add(jMenu2);
@@ -731,13 +1076,23 @@ public class MainForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(76, 76, 76)
+                    .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(77, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 12, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(12, 12, 12)
+                    .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
@@ -749,16 +1104,41 @@ public class MainForm extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
       this.CreatePanel.setVisible(true);
+      this.jMenu1.enable(false);
+      this.jMenu2.enable(false);
         this.clearCreate();        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-       this.ModifyPanel.setVisible(true);
-      this.fillComboBox();
+       int tamanio =  usersList.size();  
+       Usuarios pUser;    
+       this.jComboBox1.setSelectedIndex(-1); 
+       for(int i = 0; i < tamanio; i++) {         
+           pUser = (Usuarios) usersList.get(i);           
+           this.jComboBox1.addItem(pUser.getId());          
+       }       
+       this.jComboBox1.removeItemAt(0);      
+       //this.clearModify();  
+       this.jComboBox1.setMaximumRowCount(3);     
+       this.ModifyPanel.setVisible(true);       
+       this.jMenu1.enable(true);
+       this.jMenu2.enable(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        this.DeletePanel.setVisible(true);
+        int tamanio =  usersList.size();  
+       Usuarios pUser;    
+       this.jComboBox2.setSelectedIndex(-1); 
+       for(int i = 0; i < tamanio; i++) {         
+           pUser = (Usuarios) usersList.get(i);           
+           this.jComboBox2.addItem(pUser.getId());           
+       }  
+       this.jComboBox2.removeItemAt(0);
+       this.clearDelete();          
+       this.jComboBox2.setMaximumRowCount(3);             
+       this.DeletePanel.setVisible(true);
+       this.jMenu1.enable(false);
+       this.jMenu2.enable(false);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
@@ -805,19 +1185,25 @@ public class MainForm extends javax.swing.JFrame {
         usersList.add(cantidadUsuarios,newUser);     
         cantidadUsuarios++; 
         this.CreatePanel.setVisible(false);
-
+        this.jMenuItem2.setEnabled(true);
+        this.jMenuItem3.setEnabled(true); 
+        this.jMenu1.setEnabled(true); 
+        this.jMenu2.setEnabled(true);
     }//GEN-LAST:event_button2ActionPerformed
 
     private void button3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button3ActionPerformed
         // TODO add your handling code here:\
-        this.clearModify();     
+        this.clearModify();         
     }//GEN-LAST:event_button3ActionPerformed
 
     private void button4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button4ActionPerformed
         // TODO add your handling code here:
-         String parlamentario;
-        String[] asesores = new String[8];
+        int selectedItemIndex = -1; 
+         selectedItemIndex = jComboBox1.getSelectedIndex();   
+        tempUser = (Usuarios) this.usersList.get(selectedItemIndex); 
         
+        String parlamentario;
+        String[] asesores = new String[8];        
         parlamentario = textField10.getText();
         asesores[0] = textField11.getText();
         asesores[1] = textField12.getText();
@@ -828,31 +1214,99 @@ public class MainForm extends javax.swing.JFrame {
         asesores[6] = textField17.getText();
         asesores[7] = textField18.getText();
         
-        Usuarios newUser = new Usuarios(parlamentario, asesores, "Usuario " + cantidadUsuarios);
-        usersList.add(cantidadUsuarios,newUser); 
+        tempUser.setParlamentario(parlamentario);
+        tempUser.setAsesores(asesores);
+        usersList.set(selectedItemIndex,tempUser);     
         this.ModifyPanel.setVisible(false);
+        this.clearModify();
+        this.jMenu1.enable(true);
+        this.jMenu2.enable(true);       
+     
+       int tamanio =  jComboBox1.getItemCount();       
+       for(int i = 0; i < tamanio; i++) {
+         if(i+1<tamanio) 
+            jComboBox1.removeItemAt(i);
+          if( (i+1)>= tamanio) {  
+         jComboBox1.addItem("");     
+          }        
+       jComboBox1.setSelectedIndex(-1);         
+       jComboBox1.removeItemAt(0);
+       this.clearModify();       
+       this.jComboBox1.setMaximumRowCount(3);           
+      }  
     }//GEN-LAST:event_button4ActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
-        this.CreatePanel.setVisible(false);        
+        this.CreatePanel.setVisible(false);    
+        this.clearCreate();
+        this.jMenu1.enable(true);
+        this.jMenu2.enable(true);
+        
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         // TODO add your handling code here:
-        this.ModifyPanel.setVisible(false);
+        this.ModifyPanel.setVisible(false);        
+        this.jMenu1.enable(true);
+        this.jMenu2.enable(true);
+       int tamanio =  jComboBox1.getItemCount();       
+       for(int i = 0; i < tamanio; i++) {
+         if(i+1<tamanio) 
+            jComboBox1.removeItemAt(i);
+          if( (i+1)>= tamanio) {
+        //  jComboBox1.setSelectedIndex(i);
+         jComboBox1.addItem("");  
+          }
+       }    
+        jComboBox1.setSelectedIndex(-1); 
+        jComboBox1.removeItemAt(0);
+       this.clearModify();       
+       this.jComboBox1.setMaximumRowCount(3);      
     }//GEN-LAST:event_jToggleButton2ActionPerformed
-
-    private void button5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_button5ActionPerformed
 
     private void button6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button6ActionPerformed
         // TODO add your handling code here:
+       int selectedItemIndex = -1; 
+         selectedItemIndex = jComboBox2.getSelectedIndex();   
+        tempUser = (Usuarios) this.usersList.get(selectedItemIndex);          
+        usersList.remove(selectedItemIndex);   
+          
+       int tamanio =  jComboBox2.getItemCount();       
+       for(int i = 0; i < tamanio; i++) {
+         if(i+1<tamanio) 
+            jComboBox2.removeItemAt(i);
+          if( (i+1)>= tamanio) {  
+         jComboBox2.addItem("");         
+          }     
+         jComboBox2.setSelectedIndex(-1);         
+         jComboBox2.removeItemAt(0);
+       this.clearDelete();
+       this.jComboBox2.setMaximumRowCount(3);  
+       this.DeletePanel.setVisible(false);       
+       this.jMenu1.enable(true);
+       this.jMenu2.enable(true); 
+      }  
     }//GEN-LAST:event_button6ActionPerformed
 
     private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
         // TODO add your handling code here:
+       this.DeletePanel.setVisible(false);       
+        this.jMenu1.enable(true);
+        this.jMenu2.enable(true);
+       int tamanio =  jComboBox1.getItemCount();       
+       for(int i = 0; i < tamanio; i++) {
+         if(i+1<tamanio) 
+            jComboBox2.removeItemAt(i);
+          if( (i+1)>= tamanio) {
+        //  jComboBox1.setSelectedIndex(i);
+         jComboBox2.addItem("");     
+          }
+       }       
+       jComboBox2.setSelectedIndex(-1); 
+       jComboBox2.removeItemAt(0);
+       this.clearDelete();
+       this.jComboBox2.setMaximumRowCount(3);    
     }//GEN-LAST:event_jToggleButton3ActionPerformed
 
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
@@ -862,23 +1316,274 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu3MouseClicked
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-        int selectedItemIndex = jComboBox1.getSelectedIndex(); 
-        outterIndex = selectedItemIndex; 
-        this.clearModify();
-        Usuarios modificationUser = new Usuarios(null,null,null); 
-        modificationUser = (Usuarios) this.usersList.get(selectedItemIndex); 
-        textField10.setText(modificationUser.getParlamentario());
-        textField11.setText(modificationUser.getAsesores(0)); 
-        textField12.setText(modificationUser.getAsesores(1)); 
-        textField13.setText(modificationUser.getAsesores(2)); 
-        textField14.setText(modificationUser.getAsesores(3)); 
-        textField15.setText(modificationUser.getAsesores(4)); 
-        textField16.setText(modificationUser.getAsesores(5)); 
-        textField17.setText(modificationUser.getAsesores(6)); 
-        textField18.setText(modificationUser.getAsesores(7)); 
-        this.fillComboBox();
+        // TODO add your handling code here:       
+       
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowActivated
+
+    private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
+        // TODO add your handling code here:
+ 
+    }//GEN-LAST:event_jComboBox1MouseClicked
+
+    private void jComboBox1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseEntered
+        // TODO add your handling code here:
+  
+    }//GEN-LAST:event_jComboBox1MouseEntered
+
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        // TODO add your handling code here:
+        int selectedItemIndex = jComboBox1.getSelectedIndex();               
+        this.clearModify();
+        if (selectedItemIndex >= 0) {
+        tempUser = (Usuarios) this.usersList.get(selectedItemIndex); 
+        textField10.setText(tempUser.getParlamentario());
+        textField11.setText(tempUser.getAsesores(0)); 
+        textField12.setText(tempUser.getAsesores(1)); 
+        textField13.setText(tempUser.getAsesores(2)); 
+        textField14.setText(tempUser.getAsesores(3)); 
+        textField15.setText(tempUser.getAsesores(4)); 
+        textField16.setText(tempUser.getAsesores(5)); 
+        textField17.setText(tempUser.getAsesores(6)); 
+        textField18.setText(tempUser.getAsesores(7)); 
+         }
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
+
+    private void jComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox2ItemStateChanged
+        // TODO add your handling code here:
+        int selectedItemIndex = jComboBox2.getSelectedIndex();  
+        this.clearDelete();
+      
+        if(selectedItemIndex >= 0) {
+        tempUser = (Usuarios) this.usersList.get(selectedItemIndex); 
+        textField19.setText(tempUser.getParlamentario());
+        textField20.setText(tempUser.getAsesores(0)); 
+        textField21.setText(tempUser.getAsesores(1)); 
+        textField22.setText(tempUser.getAsesores(2)); 
+        textField23.setText(tempUser.getAsesores(3)); 
+        textField24.setText(tempUser.getAsesores(4)); 
+        textField25.setText(tempUser.getAsesores(5)); 
+        textField26.setText(tempUser.getAsesores(6)); 
+        textField27.setText(tempUser.getAsesores(7));
+        }
+    }//GEN-LAST:event_jComboBox2ItemStateChanged
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void button9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button9ActionPerformed
+        // TODO add your handling code here:
+        String reglamento;
+        String nombreLey; 
+
+        if (jTextArea1.getText().equals("") || textField29.getText().equals("")) {
+
+            throw new RuntimeException("STRING IS EMPTY");
+        }
+        else{
+
+            nombreLey = textField29.getText();
+            reglamento = jTextArea1.getText();
+
+            Leyes newLaw = new Leyes(nombreLey, reglamento);
+            lawList.add(cantidadLeyes, newLaw);
+            cantidadLeyes++;
+        this.CreateLawPanel1.setVisible(false);
+        this.jMenuItem2.setEnabled(true);
+        this.jMenuItem3.setEnabled(true); 
+        this.jMenu1.setEnabled(true); 
+        this.jMenu2.setEnabled(true);
+        }
+    }//GEN-LAST:event_button9ActionPerformed
+
+    private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
+        // TODO add your handling code here:
+        this.CreateLawPanel1.setVisible(false);    
+        this.clearCreate();
+        this.jMenu1.enable(true);
+        this.jMenu2.enable(true);        
+    }//GEN-LAST:event_jToggleButton4ActionPerformed
+
+    private void button10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button10ActionPerformed
+        // TODO add your handling code here:
+        int selectedItemIndex = -1; 
+         selectedItemIndex = jComboBox3.getSelectedIndex();           
+        tempLaw = (Leyes) this.lawList.get(selectedItemIndex);
+        
+        String reglamento;
+        String nombreLey; 
+        if (jTextArea2.getText().equals("") && textField37.getText().equals("")) {
+
+            throw new RuntimeException("STRING IS EMPTY");
+        }
+        else{
+
+        nombreLey = textField37.getText();
+        reglamento = jTextArea2.getText();
+        tempLaw.setLey(nombreLey);
+        tempLaw.setDescripcion(reglamento);          
+        lawList.set(selectedItemIndex,tempLaw);
+        this.ModifyLawPanel.setVisible(false);
+        this.clearLawModify();
+        this.jMenu1.enable(true);
+        this.jMenu2.enable(true);       
+     
+       int tamanio =  jComboBox3.getItemCount();       
+       for(int i = 0; i < tamanio; i++) {
+         if(i+1<tamanio) 
+            jComboBox3.removeItemAt(i);
+          if( (i+1)>= tamanio) {  
+           jComboBox3.addItem("");            
+          }      
+           jComboBox3.setSelectedIndex(-1);         
+           jComboBox3.removeItemAt(0);
+       this.clearModify();       
+       this.jComboBox3.setMaximumRowCount(3);           
+      } 
+        }
+    }//GEN-LAST:event_button10ActionPerformed
+
+    private void jToggleButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton5ActionPerformed
+        // TODO add your handling code here:
+       this.ModifyLawPanel.setVisible(false);   
+       this.jMenu1.enable(true);
+       this.jMenu2.enable(true);
+       int tamanio =  jComboBox3.getItemCount();       
+       for(int i = 0; i < tamanio; i++) {
+         if(i+1<tamanio) 
+            jComboBox3.removeItemAt(i);
+          if( (i+1)>= tamanio) {
+           jComboBox3.addItem("");
+           jComboBox3.setSelectedIndex(0);         
+           jComboBox3.removeItemAt(0);       
+          }
+       }            
+       this.clearLawModify();
+       this.jComboBox3.setMaximumRowCount(3);  
+    }//GEN-LAST:event_jToggleButton5ActionPerformed
+
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        this.CreateLawPanel1.setVisible(true);
+        this.clearLawCreate();
+        this.jMenu1.enable(false); 
+        this.jMenu2.enable(false); 
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jComboBox3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox3ItemStateChanged
+        // TODO add your handling code here:
+         int selectedItemIndex = jComboBox3.getSelectedIndex();               
+         this.clearLawModify();
+         if (selectedItemIndex >= 0) {
+            tempLaw = (Leyes) this.lawList.get(selectedItemIndex); 
+            textField37.setText(tempLaw.getLey());
+            jTextArea2.setText(tempLaw.getDescripcion()); 
+         }
+    }//GEN-LAST:event_jComboBox3ItemStateChanged
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        int tamanio =  lawList.size();  
+       Leyes pLeyes;    
+       
+        this.jComboBox3.setSelectedIndex(-1); 
+       for(int i = 0; i < tamanio; i++) {         
+           pLeyes = (Leyes) lawList.get(i);           
+           this.jComboBox3.addItem(pLeyes.getLey());          
+       }
+       
+       this.jComboBox3.removeItemAt(0);      
+       //this.clearLawModify();        
+       this.jComboBox3.setMaximumRowCount(3);     
+       this.ModifyLawPanel.setVisible(true);       
+       this.jMenu1.enable(false);
+       this.jMenu2.enable(false);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void button13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button13ActionPerformed
+        // TODO add your handling code here:
+         int selectedItemIndex = -1; 
+         selectedItemIndex = jComboBox5.getSelectedIndex();   
+        tempLaw = (Leyes) this.lawList.get(selectedItemIndex);          
+        usersList.remove(selectedItemIndex);     
+        this.DeleteLawPanel.setVisible(false);       
+        this.jMenu1.enable(true);
+        this.jMenu2.enable(true);       
+     
+       int tamanio =  jComboBox5.getItemCount();       
+       for(int i = 0; i < tamanio; i++) {
+         if(i+1<tamanio) 
+            jComboBox5.removeItemAt(i);
+          if( (i+1)>= tamanio) {  
+         jComboBox5.addItem("");       
+          }        
+         jComboBox5.setSelectedIndex(-1);         
+         jComboBox5.removeItemAt(0);       
+       this.jComboBox5.setMaximumRowCount(3);    
+       }
+    }//GEN-LAST:event_button13ActionPerformed
+
+    private void jToggleButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton7ActionPerformed
+        // TODO add your handling code here:
+       this.DeleteLawPanel.setVisible(false);       
+       this.jMenu1.enable(true);
+       this.jMenu2.enable(true);
+       int tamanio =  jComboBox5.getItemCount();       
+       for(int i = 0; i < tamanio; i++) {
+         if(i+1<tamanio) 
+            jComboBox5.removeItemAt(i);
+          if( (i+1)>= tamanio) {
+        //  jComboBox1.setSelectedIndex(i);
+         jComboBox5.addItem("");     
+          }
+       }       
+       jComboBox5.setSelectedIndex(-1); 
+       jComboBox5.removeItemAt(0);
+       this.clearDelete();
+       this.jComboBox5.setMaximumRowCount(3);    
+    }//GEN-LAST:event_jToggleButton7ActionPerformed
+
+    private void jComboBox5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox5ItemStateChanged
+        // TODO add your handling code here:
+        int selectedItemIndex = jComboBox5.getSelectedIndex();  
+        this.clearLawDelete();
+        
+        if(selectedItemIndex >= 0) {
+        tempLaw = (Leyes) this.lawList.get(selectedItemIndex); 
+        textField38.setText(tempLaw.getLey());
+        jTextArea3.setText(tempLaw.getDescripcion());         
+        }
+        
+    }//GEN-LAST:event_jComboBox5ItemStateChanged
+
+    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+       int tamanio =  lawList.size();  
+       Leyes pLaw;    
+       this.jComboBox5.setSelectedIndex(-1); 
+       for(int i = 0; i < tamanio; i++) {         
+           pLaw = (Leyes) lawList.get(i);           
+           this.jComboBox5.addItem(pLaw.getLey());           
+       }  
+       this.jComboBox5.removeItemAt(0);    
+       this.clearLawDelete();       
+       this.jComboBox5.setMaximumRowCount(3);             
+       this.DeleteLawPanel.setVisible(true);
+       this.jMenu1.enable(false);
+       this.jMenu2.enable(false);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -916,21 +1621,30 @@ public class MainForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel CreateLawPanel1;
     private javax.swing.JPanel CreatePanel;
+    private javax.swing.JPanel DeleteLawPanel;
     private javax.swing.JPanel DeletePanel;
+    private javax.swing.JPanel ModifyLawPanel;
     private javax.swing.JPanel ModifyPanel;
     private java.awt.Button button1;
+    private java.awt.Button button10;
+    private java.awt.Button button13;
     private java.awt.Button button2;
     private java.awt.Button button3;
     private java.awt.Button button4;
-    private java.awt.Button button5;
     private java.awt.Button button6;
+    private java.awt.Button button9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JDialog jDialog1;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JLayeredPane jLayeredPane3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -946,9 +1660,18 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton3;
+    private javax.swing.JToggleButton jToggleButton4;
+    private javax.swing.JToggleButton jToggleButton5;
+    private javax.swing.JToggleButton jToggleButton7;
     private java.awt.Label label1;
     private java.awt.Label label10;
     private java.awt.Label label11;
@@ -970,8 +1693,14 @@ public class MainForm extends javax.swing.JFrame {
     private java.awt.Label label26;
     private java.awt.Label label27;
     private java.awt.Label label3;
+    private java.awt.Label label35;
+    private java.awt.Label label36;
     private java.awt.Label label4;
+    private java.awt.Label label43;
+    private java.awt.Label label44;
+    private java.awt.Label label45;
     private java.awt.Label label5;
+    private java.awt.Label label55;
     private java.awt.Label label6;
     private java.awt.Label label7;
     private java.awt.Label label8;
@@ -996,7 +1725,10 @@ public class MainForm extends javax.swing.JFrame {
     private java.awt.TextField textField25;
     private java.awt.TextField textField26;
     private java.awt.TextField textField27;
+    private java.awt.TextField textField29;
     private java.awt.TextField textField3;
+    private java.awt.TextField textField37;
+    private java.awt.TextField textField38;
     private java.awt.TextField textField4;
     private java.awt.TextField textField5;
     private java.awt.TextField textField6;
@@ -1027,15 +1759,29 @@ public class MainForm extends javax.swing.JFrame {
         textField8.setText("");
         textField9.setText("");
 }
-    
-    public void fillComboBox() {
-       int tamanio =  usersList.size();   
-       this.jComboBox1.removeAllItems();
-        for(int i = 0; i <= tamanio; i++) {
-           Usuarios pUser = new Usuarios(null,null,null); 
-           pUser = (Usuarios) usersList.get(i);           
-           this.jComboBox1.addItem(pUser.getId());
+    public void clearDelete() {
+        textField19.setText("");
+        textField20.setText("");
+        textField21.setText("");
+        textField21.setText("");
+        textField23.setText("");
+        textField24.setText("");
+        textField25.setText("");
+        textField26.setText("");
+        textField27.setText("");
+} 
+    public void clearLawCreate() {
+        textField29.setText("");
+        jTextArea1.setText("");
+}        
+    public void clearLawModify() {
+        textField37.setText("");
+        jTextArea2.setText("");
        }
+    public void clearLawDelete() {
+        textField38.setText("");
+        jTextArea3.setText("");        
     }
-    
+        
+      
 }

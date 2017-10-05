@@ -33,13 +33,14 @@ public class Lista<E> implements ListInt<E> {
 	}
 
 	public E get(int i) {
-		//checkIndex(i, size);
+		//checkIndex(i, size);                
 		return data[i];
 	}
 
 	public E set(int i, E e) {
 		//checkIndex(i, size);
 		E temp = data[i];
+                data[i] = null; 
 		data[i] = e;
 		return temp;
 	}
@@ -61,9 +62,11 @@ public class Lista<E> implements ListInt<E> {
         public E remove( int i ) throws IndexOutOfBoundsException {
 		//checkIndex(i, size);
 		E temp = data[i];
-		for (int k=i; k < size-1; k++)
-			data[k] = data[k+1];
-		data[size-1] = null;
+                data[i] = null; 
+		for (int k=i; k < size-1; k++) {                    
+                   data[k] = data[k+1];
+                   data[size-1] = null; 
+                }			
 		size--;
 		return temp;
 	}
