@@ -75,7 +75,7 @@ public class Leyes {
         return false; 
    } 
    
-   public boolean DevolverLey() {
+   public boolean devolverLey() {
        int cantDisponibles = getCantLeyes();    
        if (cantDisponibles > 6) {
            return false; 
@@ -99,14 +99,14 @@ public class Leyes {
         return false; 
    }
    
-      public boolean DevolverReglamento() {
-       int cantDisponibles = getCantLeyes();    
+      public boolean devolverReglamento() {
+       int cantDisponibles = getCantReglamentos();     
         if (cantDisponibles > 6) {
             return false; 
         }
         else {
          cantDisponibles++; 
-        setCantLeyes(cantDisponibles); 
+        setCantReglamentos(cantDisponibles); 
         return true; 
         }
    } 
