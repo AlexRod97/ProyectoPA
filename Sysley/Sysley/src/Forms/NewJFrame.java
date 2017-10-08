@@ -43,6 +43,7 @@ public class NewJFrame extends javax.swing.JFrame {
         this.PrestamosFrame.setVisible(false);
         this.DevolucionesFrame.setVisible(false);
         this.LawReportFrame.setVisible(false);
+        this.AboutFrame.setVisible(false);
     }
 
     /**
@@ -202,6 +203,14 @@ public class NewJFrame extends javax.swing.JFrame {
         jTextFieldLaw = new javax.swing.JTextField();
         jLabel45 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        AboutFrame = new javax.swing.JInternalFrame();
+        Sysley = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -224,7 +233,6 @@ public class NewJFrame extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        CreateUserFrame.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("Crear Usuario")));
         CreateUserFrame.setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         CreateUserFrame.setMaximumSize(new java.awt.Dimension(450, 386));
         CreateUserFrame.setMinimumSize(new java.awt.Dimension(450, 386));
@@ -731,6 +739,7 @@ public class NewJFrame extends javax.swing.JFrame {
         });
         PrestamosFrame.getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 120, 50));
 
+        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
         jLabel40.setText("Préstamos");
         PrestamosFrame.getContentPane().add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
 
@@ -816,6 +825,7 @@ public class NewJFrame extends javax.swing.JFrame {
         });
         DevolucionesFrame.getContentPane().add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 150, 50));
 
+        jLabel44.setForeground(new java.awt.Color(255, 255, 255));
         jLabel44.setText("Devoluciones");
         DevolucionesFrame.getContentPane().add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
 
@@ -981,6 +991,34 @@ public class NewJFrame extends javax.swing.JFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 540, 490);
 
+        AboutFrame.setVisible(true);
+        AboutFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Sysley.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Sysley.setText("Sysley.");
+        AboutFrame.getContentPane().add(Sysley, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 18, -1, -1));
+
+        jLabel54.setText("About.");
+        AboutFrame.getContentPane().add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 60, -1, -1));
+
+        jLabel55.setText("Desarrolladores.");
+        AboutFrame.getContentPane().add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 336, -1, -1));
+
+        jLabel56.setText("jLabel4");
+        AboutFrame.getContentPane().add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 336, 399, -1));
+
+        jLabel57.setText("jLabel5");
+        AboutFrame.getContentPane().add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 365, 399, -1));
+
+        jTextPane1.setEditable(false);
+        jTextPane1.setBackground(new java.awt.Color(240, 240, 240));
+        jScrollPane4.setViewportView(jTextPane1);
+
+        AboutFrame.getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 60, 399, 263));
+
+        getContentPane().add(AboutFrame);
+        AboutFrame.setBounds(0, 0, 565, 444);
+
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/userS.png"))); // NOI18N
         jMenu1.setText("Usuarios");
 
@@ -1079,6 +1117,11 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/infoS.png"))); // NOI18N
         jMenu4.setText("Acerca de");
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu4MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu4);
 
         jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/exitS.png"))); // NOI18N
@@ -1647,8 +1690,8 @@ public class NewJFrame extends javax.swing.JFrame {
         String prestamoUser;
         String prestamoLaw;
         boolean prestamoSuccess;
-
-       if (tempUser.getPrestamos()<3) {
+        int cantPrestamos = tempUser.getPrestamos();
+       if (cantPrestamos<3) {
          if (specificUser == 0) {
             prestamoUser = tempUser.getParlamentario();
         }
@@ -1662,6 +1705,8 @@ public class NewJFrame extends javax.swing.JFrame {
             prestamoSuccess = tempLaw.prestamoReglamento();
             if (prestamoSuccess) {
                 this.jLabel40.setText("Préstamo exitoso para < " + prestamoUser +  "> con el reglamento de la ley: " + prestamoLaw);
+                cantPrestamos++; 
+                tempUser.setPrestamos(cantPrestamos); 
             }
             else {
                 this.jLabel40.setText("Préstamo fallido, no hay reglamento disponible de esa ley");
@@ -1673,6 +1718,8 @@ public class NewJFrame extends javax.swing.JFrame {
             prestamoSuccess = tempLaw.prestamoLey();
             if (prestamoSuccess) {
                 this.jLabel40.setText("Préstamo exitoso para < " + prestamoUser +  "> con la ley: " + prestamoLaw);
+                cantPrestamos++; 
+                tempUser.setPrestamos(cantPrestamos);
             }
             else {
                 this.jLabel40.setText("Préstamo fallido, ley no disponible");
@@ -1685,6 +1732,8 @@ public class NewJFrame extends javax.swing.JFrame {
             prestamoSuccess = tempLaw.prestamoLote();
             if (prestamoSuccess) {
                 this.jLabel40.setText("Préstamo exitoso para < " + prestamoUser +  "> con lote de ley : " + prestamoLaw);
+                cantPrestamos++; 
+                tempUser.setPrestamos(cantPrestamos);
             }
             else {
                 this.jLabel40.setText("Préstamo fallido, ley no disponible");
@@ -1707,7 +1756,7 @@ public class NewJFrame extends javax.swing.JFrame {
         String prestamoLaw;
         int cantPrestamos  = tempUser.getPrestamos();
         boolean devolucionSuccess;
-
+        
         if (cantPrestamos<3) {
             if (specificUser == 0) {
                 prestamoUser = tempUser.getParlamentario();
@@ -1722,6 +1771,8 @@ public class NewJFrame extends javax.swing.JFrame {
                 devolucionSuccess = tempLaw.devolverReglamento();
                 if (devolucionSuccess) {
                     this.jLabel44.setText("Devolución exitosa para < " + prestamoUser +  "> con el reglamento de la ley: " + prestamoLaw);
+                    cantPrestamos--; 
+                    tempUser.setPrestamos(cantPrestamos);
                 }
                 else {
                     this.jLabel44.setText("Devolución fallida, no hay reglamentos en préstamo");
@@ -1733,6 +1784,8 @@ public class NewJFrame extends javax.swing.JFrame {
                 devolucionSuccess = tempLaw.devolverLey();
                 if (devolucionSuccess) {
                     this.jLabel44.setText("Devolución exitosa para < " + prestamoUser +  "> con el reglamento de la ley: " + prestamoLaw);
+                    cantPrestamos--; 
+                    tempUser.setPrestamos(cantPrestamos);
                 }
                 else {
                     this.jLabel44.setText("Devolución fallida, no hay leyes en préstamo");
@@ -1744,6 +1797,8 @@ public class NewJFrame extends javax.swing.JFrame {
                 devolucionSuccess = tempLaw.devolverLote();
                 if (devolucionSuccess) {
                     this.jLabel44.setText("Préstamo exitoso para < " + prestamoUser +  "> con lote de ley : " + prestamoLaw);
+                    cantPrestamos--; 
+                    tempUser.setPrestamos(cantPrestamos);
                 }
                 else {
                     this.jLabel44.setText("Devolución fallida, no hay lotes en préstamo");
@@ -1984,6 +2039,17 @@ public class NewJFrame extends javax.swing.JFrame {
         jTextFieldLaw.setText("");
     }//GEN-LAST:event_jMenu6MouseClicked
 
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+        // TODO add your handling code here:
+               String Descrip="Sysley es un sistema dinamico creado con la utilidad de facilitar\n la implementacion de leyes en guatemala dando las funcionalidades"
+                       + "n\nnecesarias al usuario para la creacion de parlamentos\n leyes y reglamentos de la constitucion del estado de Guatemala.";
+        
+        jTextPane1.setText(Descrip);
+        jLabel56.setText("Alexander Rodriguez C. 1053016 ");
+        jLabel57.setText("Felipe Gonzalez C.1252616");        
+        this.AboutFrame.setVisible(true); 
+    }//GEN-LAST:event_jMenu4MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -2020,6 +2086,7 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JInternalFrame AboutFrame;
     private javax.swing.JInternalFrame CreateLawFrame;
     private javax.swing.JInternalFrame CreateUserFrame;
     private javax.swing.JInternalFrame DeleteLawFrame;
@@ -2029,6 +2096,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JInternalFrame ModifyLawFrame;
     private javax.swing.JInternalFrame ModifyUserFrame;
     private javax.swing.JInternalFrame PrestamosFrame;
+    private javax.swing.JLabel Sysley;
     private javax.swing.JLabel TotalLawsLabel;
     private javax.swing.JLabel TotalLawsLabel1;
     private javax.swing.JLabel TotalLawsLabel2;
@@ -2120,6 +2188,10 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -2148,6 +2220,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
@@ -2182,6 +2255,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField jTextFieldLaw;
+    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JToggleButton jToggleButton9;
     // End of variables declaration//GEN-END:variables
 
