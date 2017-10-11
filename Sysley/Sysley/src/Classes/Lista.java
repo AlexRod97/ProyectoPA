@@ -11,13 +11,13 @@ package Classes;
  */
 public class Lista<E> implements ListInt<E> {
 	
-	public static final int CAPACITY=16;
+	public static final int CAPACITY=25;
 	private E[ ] data;
 	private int size = 0;
 	//private int contCapacidad = 0; 
         
 	public Lista() {
-		this(CAPACITY); //  da la capacidad del array 16
+		this(CAPACITY); //  da la capacidad del array 25
 	}
 
 	public Lista(int capacity) {

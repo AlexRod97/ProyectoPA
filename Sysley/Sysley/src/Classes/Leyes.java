@@ -77,11 +77,11 @@ public class Leyes {
    
    public boolean devolverLey() {
        int cantDisponibles = getCantLeyes();    
-       if (cantDisponibles > 6) {
+       if (cantDisponibles >= 5) {
            return false; 
        }
        else { 
-         cantDisponibles++; 
+        cantDisponibles++; 
         setCantLeyes(cantDisponibles);
         return true; 
        }
@@ -101,7 +101,7 @@ public class Leyes {
    
       public boolean devolverReglamento() {
        int cantDisponibles = getCantReglamentos();     
-        if (cantDisponibles > 6) {
+        if (cantDisponibles >= 5) {
             return false; 
         }
         else {
@@ -128,7 +128,7 @@ public class Leyes {
     public boolean devolverLote() {
     int cantDisponiblesL = getCantLeyes();
     int cantDisponiblesR = getCantReglamentos(); 
-        if ( (cantDisponiblesL > 6) && (cantDisponiblesR > 6) ) {
+        if ( (cantDisponiblesL >= 5) && (cantDisponiblesR >= 5) ) {
         return false; 
         }
         else {

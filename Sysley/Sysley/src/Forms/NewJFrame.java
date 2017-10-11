@@ -9,6 +9,7 @@ import Classes.Usuarios;
 import Classes.Leyes; 
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
+import Forms.About; 
 /**
  *
  * @author rodri
@@ -42,8 +43,7 @@ public class NewJFrame extends javax.swing.JFrame {
         this.DeleteLawFrame.setVisible(false);
         this.PrestamosFrame.setVisible(false);
         this.DevolucionesFrame.setVisible(false);
-        this.LawReportFrame.setVisible(false);
-        this.AboutFrame.setVisible(false);
+        this.LawReportFrame.setVisible(false);        
     }
 
     /**
@@ -101,8 +101,8 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
         jDesktopPane2 = new javax.swing.JDesktopPane();
+        jButton20 = new javax.swing.JButton();
         DeleteUserFrame = new javax.swing.JInternalFrame();
         jTextField19 = new javax.swing.JTextField();
         jTextField20 = new javax.swing.JTextField();
@@ -124,9 +124,9 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jDesktopPane3 = new javax.swing.JDesktopPane();
+        jButton5 = new javax.swing.JButton();
         CreateLawFrame = new javax.swing.JInternalFrame();
         jTextField28 = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
@@ -143,21 +143,21 @@ public class NewJFrame extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jLabel34 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
         jComboBox10 = new javax.swing.JComboBox<>();
         jButton15 = new javax.swing.JButton();
         jDesktopPane5 = new javax.swing.JDesktopPane();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
         DeleteLawFrame = new javax.swing.JInternalFrame();
         jTextField30 = new javax.swing.JTextField();
         jLabel35 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
         jLabel36 = new javax.swing.JLabel();
-        jButton10 = new javax.swing.JButton();
         jComboBox9 = new javax.swing.JComboBox<>();
         jButton16 = new javax.swing.JButton();
         jDesktopPane6 = new javax.swing.JDesktopPane();
+        jButton10 = new javax.swing.JButton();
         PrestamosFrame = new javax.swing.JInternalFrame();
         jComboBox3 = new javax.swing.JComboBox<>();
         jComboBox4 = new javax.swing.JComboBox<>();
@@ -167,11 +167,11 @@ public class NewJFrame extends javax.swing.JFrame {
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jButton12 = new javax.swing.JButton();
-        jLabel40 = new javax.swing.JLabel();
         jButton18 = new javax.swing.JButton();
         jDesktopPane7 = new javax.swing.JDesktopPane();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jLabel40 = new javax.swing.JLabel();
+        jButton12 = new javax.swing.JButton();
         DevolucionesFrame = new javax.swing.JInternalFrame();
         jComboBox6 = new javax.swing.JComboBox<>();
         jComboBox7 = new javax.swing.JComboBox<>();
@@ -181,11 +181,11 @@ public class NewJFrame extends javax.swing.JFrame {
         jRadioButton4 = new javax.swing.JRadioButton();
         jRadioButton5 = new javax.swing.JRadioButton();
         jRadioButton6 = new javax.swing.JRadioButton();
-        jComboBox8 = new javax.swing.JComboBox<>();
         jButton13 = new javax.swing.JButton();
-        jLabel44 = new javax.swing.JLabel();
-        jButton19 = new javax.swing.JButton();
         jDesktopPane8 = new javax.swing.JDesktopPane();
+        jLabel44 = new javax.swing.JLabel();
+        jComboBox8 = new javax.swing.JComboBox<>();
+        jButton19 = new javax.swing.JButton();
         LawReportFrame = new javax.swing.JInternalFrame();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
@@ -203,14 +203,6 @@ public class NewJFrame extends javax.swing.JFrame {
         jTextFieldLaw = new javax.swing.JTextField();
         jLabel45 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        AboutFrame = new javax.swing.JInternalFrame();
-        Sysley = new javax.swing.JLabel();
-        jLabel54 = new javax.swing.JLabel();
-        jLabel55 = new javax.swing.JLabel();
-        jLabel56 = new javax.swing.JLabel();
-        jLabel57 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -337,6 +329,11 @@ public class NewJFrame extends javax.swing.JFrame {
 
         getContentPane().add(CreateUserFrame);
         CreateUserFrame.setBounds(30, 40, 450, 386);
+        try {
+            CreateUserFrame.setIcon(true);
+        } catch (java.beans.PropertyVetoException e1) {
+            e1.printStackTrace();
+        }
 
         ModifyUserFrame.setVisible(true);
         ModifyUserFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -410,23 +407,29 @@ public class NewJFrame extends javax.swing.JFrame {
                 jButton20ActionPerformed(evt);
             }
         });
-        ModifyUserFrame.getContentPane().add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(341, 0, -1, -1));
+
+        jDesktopPane2.setLayer(jButton20, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
         jDesktopPane2.setLayout(jDesktopPane2Layout);
         jDesktopPane2Layout.setHorizontalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane2Layout.createSequentialGroup()
+                .addContainerGap(368, Short.MAX_VALUE)
+                .addComponent(jButton20)
+                .addGap(23, 23, 23))
         );
         jDesktopPane2Layout.setVerticalGroup(
             jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
+            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                .addComponent(jButton20)
+                .addGap(0, 385, Short.MAX_VALUE))
         );
 
-        ModifyUserFrame.getContentPane().add(jDesktopPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 410));
+        ModifyUserFrame.getContentPane().add(jDesktopPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 410));
 
         getContentPane().add(ModifyUserFrame);
-        ModifyUserFrame.setBounds(0, 0, 406, 448);
+        ModifyUserFrame.setBounds(0, 0, 446, 448);
 
         DeleteUserFrame.setVisible(true);
         DeleteUserFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -478,14 +481,6 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel30.setText("Asesor 8:");
         DeleteUserFrame.getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, -1, -1));
 
-        jButton5.setText("Eliminar");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        DeleteUserFrame.getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, 120, 30));
-
         jButton11.setText("x");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -494,15 +489,30 @@ public class NewJFrame extends javax.swing.JFrame {
         });
         DeleteUserFrame.getContentPane().add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, -1));
 
+        jButton5.setText("Eliminar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        jDesktopPane3.setLayer(jButton5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jDesktopPane3Layout = new javax.swing.GroupLayout(jDesktopPane3);
         jDesktopPane3.setLayout(jDesktopPane3Layout);
         jDesktopPane3Layout.setHorizontalGroup(
             jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane3Layout.createSequentialGroup()
+                .addContainerGap(141, Short.MAX_VALUE)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(139, 139, 139))
         );
         jDesktopPane3Layout.setVerticalGroup(
             jDesktopPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane3Layout.createSequentialGroup()
+                .addContainerGap(307, Short.MAX_VALUE)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         DeleteUserFrame.getContentPane().add(jDesktopPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 350));
@@ -577,22 +587,6 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel34.setText("Reglamento:");
         ModifyLawFrame.getContentPane().add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
-        jButton8.setText("Modificar");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-        ModifyLawFrame.getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 90, 40));
-
-        jButton9.setText("Borrar");
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-        ModifyLawFrame.getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 90, 40));
-
         jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "   " }));
         jComboBox10.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -609,15 +603,42 @@ public class NewJFrame extends javax.swing.JFrame {
         });
         ModifyLawFrame.getContentPane().add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 50, -1));
 
+        jButton8.setText("Modificar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        jButton9.setText("Borrar");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jDesktopPane5.setLayer(jButton8, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane5.setLayer(jButton9, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jDesktopPane5Layout = new javax.swing.GroupLayout(jDesktopPane5);
         jDesktopPane5.setLayout(jDesktopPane5Layout);
         jDesktopPane5Layout.setHorizontalGroup(
             jDesktopPane5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGroup(jDesktopPane5Layout.createSequentialGroup()
+                .addGap(89, 89, 89)
+                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(112, Short.MAX_VALUE))
         );
         jDesktopPane5Layout.setVerticalGroup(
             jDesktopPane5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane5Layout.createSequentialGroup()
+                .addContainerGap(327, Short.MAX_VALUE)
+                .addGroup(jDesktopPane5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         ModifyLawFrame.getContentPane().add(jDesktopPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 380));
@@ -627,27 +648,19 @@ public class NewJFrame extends javax.swing.JFrame {
 
         DeleteLawFrame.setVisible(true);
         DeleteLawFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        DeleteLawFrame.getContentPane().add(jTextField30, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 270, -1));
+        DeleteLawFrame.getContentPane().add(jTextField30, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 270, -1));
 
         jLabel35.setText("Ley:");
-        DeleteLawFrame.getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
+        DeleteLawFrame.getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
 
         jTextArea3.setColumns(20);
         jTextArea3.setRows(5);
         jScrollPane3.setViewportView(jTextArea3);
 
-        DeleteLawFrame.getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 270, 170));
+        DeleteLawFrame.getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 270, 170));
 
         jLabel36.setText("Reglamento:");
-        DeleteLawFrame.getContentPane().add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
-
-        jButton10.setText("Eliminar");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
-        DeleteLawFrame.getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 140, 40));
+        DeleteLawFrame.getContentPane().add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "    " }));
         jComboBox9.addItemListener(new java.awt.event.ItemListener() {
@@ -655,7 +668,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 jComboBox9ItemStateChanged(evt);
             }
         });
-        DeleteLawFrame.getContentPane().add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 270, -1));
+        DeleteLawFrame.getContentPane().add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 270, -1));
 
         jButton16.setText("x");
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -665,21 +678,36 @@ public class NewJFrame extends javax.swing.JFrame {
         });
         DeleteLawFrame.getContentPane().add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, -1, -1));
 
+        jButton10.setText("Eliminar");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
+        jDesktopPane6.setLayer(jButton10, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jDesktopPane6Layout = new javax.swing.GroupLayout(jDesktopPane6);
         jDesktopPane6.setLayout(jDesktopPane6Layout);
         jDesktopPane6Layout.setHorizontalGroup(
             jDesktopPane6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane6Layout.createSequentialGroup()
+                .addContainerGap(146, Short.MAX_VALUE)
+                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(134, 134, 134))
         );
         jDesktopPane6Layout.setVerticalGroup(
             jDesktopPane6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane6Layout.createSequentialGroup()
+                .addContainerGap(321, Short.MAX_VALUE)
+                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
         );
 
-        DeleteLawFrame.getContentPane().add(jDesktopPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 410));
+        DeleteLawFrame.getContentPane().add(jDesktopPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 400));
 
         getContentPane().add(DeleteLawFrame);
-        DeleteLawFrame.setBounds(10, 20, 436, 448);
+        DeleteLawFrame.setBounds(10, 20, 436, 438);
 
         PrestamosFrame.setVisible(true);
         PrestamosFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -728,21 +756,6 @@ public class NewJFrame extends javax.swing.JFrame {
         });
         PrestamosFrame.getContentPane().add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, -1, -1));
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "    " }));
-        PrestamosFrame.getContentPane().add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 110, -1));
-
-        jButton12.setText("Prestar");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
-            }
-        });
-        PrestamosFrame.getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 120, 50));
-
-        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel40.setText("Préstamos");
-        PrestamosFrame.getContentPane().add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
-
         jButton18.setText("x");
         jButton18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -751,21 +764,55 @@ public class NewJFrame extends javax.swing.JFrame {
         });
         PrestamosFrame.getContentPane().add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
 
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "    " }));
+
+        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel40.setText("Préstamos");
+
+        jButton12.setText("Prestar");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
+        jDesktopPane7.setLayer(jComboBox5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane7.setLayer(jLabel40, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane7.setLayer(jButton12, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jDesktopPane7Layout = new javax.swing.GroupLayout(jDesktopPane7);
         jDesktopPane7.setLayout(jDesktopPane7Layout);
         jDesktopPane7Layout.setHorizontalGroup(
             jDesktopPane7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
+            .addGroup(jDesktopPane7Layout.createSequentialGroup()
+                .addGroup(jDesktopPane7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane7Layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jDesktopPane7Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel40))
+                    .addGroup(jDesktopPane7Layout.createSequentialGroup()
+                        .addGap(138, 138, 138)
+                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
         jDesktopPane7Layout.setVerticalGroup(
             jDesktopPane7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane7Layout.createSequentialGroup()
+                .addContainerGap(224, Short.MAX_VALUE)
+                .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(jLabel40)
+                .addGap(22, 22, 22))
         );
 
-        PrestamosFrame.getContentPane().add(jDesktopPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 390));
+        PrestamosFrame.getContentPane().add(jDesktopPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 400));
 
         getContentPane().add(PrestamosFrame);
-        PrestamosFrame.setBounds(10, 20, 426, 428);
+        PrestamosFrame.setBounds(10, 20, 426, 438);
 
         DevolucionesFrame.setVisible(true);
         DevolucionesFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -814,9 +861,6 @@ public class NewJFrame extends javax.swing.JFrame {
         });
         DevolucionesFrame.getContentPane().add(jRadioButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
 
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "   " }));
-        DevolucionesFrame.getContentPane().add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, 110, -1));
-
         jButton13.setText("Devolver");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -827,7 +871,8 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jLabel44.setForeground(new java.awt.Color(255, 255, 255));
         jLabel44.setText("Devoluciones");
-        DevolucionesFrame.getContentPane().add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
+
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "   " }));
 
         jButton19.setText("x");
         jButton19.addActionListener(new java.awt.event.ActionListener() {
@@ -835,17 +880,41 @@ public class NewJFrame extends javax.swing.JFrame {
                 jButton19ActionPerformed(evt);
             }
         });
-        DevolucionesFrame.getContentPane().add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, -1, -1));
+
+        jDesktopPane8.setLayer(jLabel44, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane8.setLayer(jComboBox8, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane8.setLayer(jButton19, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane8Layout = new javax.swing.GroupLayout(jDesktopPane8);
         jDesktopPane8.setLayout(jDesktopPane8Layout);
         jDesktopPane8Layout.setHorizontalGroup(
             jDesktopPane8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 420, Short.MAX_VALUE)
+            .addGroup(jDesktopPane8Layout.createSequentialGroup()
+                .addGroup(jDesktopPane8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane8Layout.createSequentialGroup()
+                        .addGroup(jDesktopPane8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDesktopPane8Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel44))
+                            .addGroup(jDesktopPane8Layout.createSequentialGroup()
+                                .addGap(90, 90, 90)
+                                .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 86, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane8Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton19)))
+                .addContainerGap())
         );
         jDesktopPane8Layout.setVerticalGroup(
             jDesktopPane8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                .addComponent(jComboBox8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(133, 133, 133)
+                .addComponent(jLabel44)
+                .addGap(25, 25, 25))
         );
 
         DevolucionesFrame.getContentPane().add(jDesktopPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 410));
@@ -856,16 +925,16 @@ public class NewJFrame extends javax.swing.JFrame {
         LawReportFrame.setVisible(true);
 
         jLabel46.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel46.setText("jLabel11");
+        jLabel46.setText("0");
 
         jLabel47.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        jLabel47.setText("LEYES EN POSECION:");
+        jLabel47.setText("LEYES EN POSESIÓN:");
 
         jLabel48.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel48.setText("PARLAMENTARIO:");
 
         TotalLawsLabel.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        TotalLawsLabel.setText("jLabel8");
+        TotalLawsLabel.setText("      ");
 
         jLabel49.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel49.setText("LEYES EN RESERVA:");
@@ -885,13 +954,13 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel51.setText("LEYES TOTALES:");
 
         TotalLawsLabel1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        TotalLawsLabel1.setText("jLabel8");
+        TotalLawsLabel1.setText("0");
 
         jLabel52.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel52.setText("INFORME DE LEYES");
 
         TotalLawsLabel2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
-        TotalLawsLabel2.setText("jLabel8");
+        TotalLawsLabel2.setText("0");
 
         jLabel53.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jLabel53.setText("SELECCIONA USUARIO");
@@ -990,34 +1059,6 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Principal.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
         jLabel1.setBounds(0, 0, 540, 490);
-
-        AboutFrame.setVisible(true);
-        AboutFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Sysley.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        Sysley.setText("Sysley.");
-        AboutFrame.getContentPane().add(Sysley, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 18, -1, -1));
-
-        jLabel54.setText("About.");
-        AboutFrame.getContentPane().add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 60, -1, -1));
-
-        jLabel55.setText("Desarrolladores.");
-        AboutFrame.getContentPane().add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 336, -1, -1));
-
-        jLabel56.setText("jLabel4");
-        AboutFrame.getContentPane().add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 336, 399, -1));
-
-        jLabel57.setText("jLabel5");
-        AboutFrame.getContentPane().add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 365, 399, -1));
-
-        jTextPane1.setEditable(false);
-        jTextPane1.setBackground(new java.awt.Color(240, 240, 240));
-        jScrollPane4.setViewportView(jTextPane1);
-
-        AboutFrame.getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 60, 399, 263));
-
-        getContentPane().add(AboutFrame);
-        AboutFrame.setBounds(0, 0, 565, 444);
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/userS.png"))); // NOI18N
         jMenu1.setText("Usuarios");
@@ -1345,6 +1386,10 @@ public class NewJFrame extends javax.swing.JFrame {
         selectedItemIndex = jComboBox1.getSelectedIndex();
         String parlamentario;
         String[] asesores = new String[8];
+       if (jComboBox1.getSelectedIndex()== -1) {
+         this.errorBox("Missing data to operate", "Empty fields found");  
+       }
+       else {
         if (  (jTextField1.getText().equals(""))||(jTextField2.getText().equals(""))||(jTextField3.getText().equals(""))||(jTextField14.getText().equals(""))||
             (jTextField5.getText().equals(""))|| (jTextField6.getText().equals(""))||(jTextField7.getText().equals(""))||(jTextField8.getText().equals(""))||
             (jTextField9.getText().equals(""))  ) {
@@ -1380,8 +1425,8 @@ public class NewJFrame extends javax.swing.JFrame {
                 this.clearModify();
                 this.jComboBox1.setMaximumRowCount(3);
             }
-        }
-  
+         }
+       }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox2ItemStateChanged
@@ -1407,7 +1452,10 @@ public class NewJFrame extends javax.swing.JFrame {
                 // TODO add your handling code here:
         int size = usersList.size();
         int selectedItemIndex = -1;
-        if (size > 0){
+        if (jComboBox2.getSelectedIndex() == -1) {
+           this.errorBox("Missing data to operate", "Empty fields found");          
+        }
+        else {
             selectedItemIndex = jComboBox2.getSelectedIndex();
             tempUser = (Usuarios) this.usersList.get(selectedItemIndex);
             usersList.remove(selectedItemIndex);
@@ -1426,9 +1474,6 @@ public class NewJFrame extends javax.swing.JFrame {
                 this.jMenu1.setEnabled(true);
                 this.jMenu2.setEnabled(true);
             }
-        }
-        else {
-            this.errorBox("No data to delete", "Empty list");
         }
 
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -1491,20 +1536,25 @@ public class NewJFrame extends javax.swing.JFrame {
         int selectedItemIndex = -1;
         int size = lawList.size();
         selectedItemIndex = jComboBox9.getSelectedIndex();
-        tempLaw = (Leyes) this.lawList.get(selectedItemIndex);
-        usersList.remove(selectedItemIndex);
-        this.DeleteLawFrame.setVisible(false);
+        if( (jComboBox9.getSelectedIndex() == -1)  ) {
+             this.errorBox("Missing data to operate", "Empty fields found");   
+        }
+        else {          
+           tempLaw = (Leyes) this.lawList.get(selectedItemIndex);
+           usersList.remove(selectedItemIndex);
+           this.DeleteLawFrame.setVisible(false);
        
-        int tamanio =  jComboBox9.getItemCount();
-        for(int i = 0; i < tamanio; i++) {
-            if(i+1<tamanio)
-            jComboBox9.removeItemAt(i);
-            if( (i+1)>= tamanio) {
+             int tamanio =  jComboBox9.getItemCount();
+             for(int i = 0; i < tamanio; i++) {
+              if(i+1<tamanio)
+              jComboBox9.removeItemAt(i);
+              if( (i+1)>= tamanio) {
                 jComboBox9.addItem("");
-            }
-            jComboBox9.setSelectedIndex(-1);
-            jComboBox9.removeItemAt(0);
-            this.jComboBox9.setMaximumRowCount(3);
+              }
+             jComboBox9.setSelectedIndex(-1);
+             jComboBox9.removeItemAt(0);
+             this.jComboBox9.setMaximumRowCount(3);
+             }
         }
     }//GEN-LAST:event_jButton10ActionPerformed
 
@@ -1512,7 +1562,12 @@ public class NewJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         int selectedItemIndex = -1;
         selectedItemIndex = jComboBox10.getSelectedIndex();
-        int size = lawList.size();
+        
+        if (jComboBox10.getSelectedIndex() == -10) {
+          this.errorBox("Missing data to operate", "Empty fields found");  
+        }
+        else {
+            int size = lawList.size();
         String reglamento;
         String nombreLey;
         if (jTextArea2.getText().equals("") && jTextField29.getText().equals("")) {
@@ -1540,8 +1595,8 @@ public class NewJFrame extends javax.swing.JFrame {
                 this.clearLawModify();
                 this.jComboBox10.setMaximumRowCount(3);
             }
+          }
         }
-
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
@@ -1559,7 +1614,6 @@ public class NewJFrame extends javax.swing.JFrame {
         jComboBox9.removeItemAt(0);
         this.clearDelete();
         this.jComboBox9.setMaximumRowCount(3);
-
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
@@ -1585,6 +1639,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jComboBox4.removeAllItems();
         jComboBox4.addItem("");
         jComboBox4.setSelectedIndex(-1);
+        jComboBox5.setSelectedIndex(-1);
         if (selectedItemIndex >= 0) {
             tempUser = (Usuarios) this.usersList.get(selectedItemIndex);
             jComboBox4.addItem(tempUser.getParlamentario());
@@ -1684,14 +1739,20 @@ public class NewJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         int menuUser = jComboBox3.getSelectedIndex();
         int specificUser = jComboBox4.getSelectedIndex();
-        int selectedLaw = jComboBox5.getSelectedIndex();
+        int selectedLaw = jComboBox5.getSelectedIndex();       
+        
+        if( (jComboBox3.getSelectedIndex() == -1) || (jComboBox4.getSelectedIndex() == -1) || (jComboBox5.getSelectedIndex() == -1) ) {
+         this.errorBox("Missing data to operate", "Empty fields found");
+        }
+        else {      
         tempUser = (Usuarios) this.usersList.get(menuUser);
         tempLaw = (Leyes) this.lawList.get(selectedLaw);
         String prestamoUser;
         String prestamoLaw;
         boolean prestamoSuccess;
-        int cantPrestamos = tempUser.getPrestamos();
-       if (cantPrestamos<3) {
+        int cantPrestamos = tempUser.getPrestamos(); 
+        
+        if (cantPrestamos<3) {
          if (specificUser == 0) {
             prestamoUser = tempUser.getParlamentario();
         }
@@ -1704,7 +1765,7 @@ public class NewJFrame extends javax.swing.JFrame {
             prestamoLaw = tempLaw.getDescripcion();
             prestamoSuccess = tempLaw.prestamoReglamento();
             if (prestamoSuccess) {
-                this.jLabel40.setText("Préstamo exitoso para < " + prestamoUser +  "> con el reglamento de la ley: " + prestamoLaw);
+                this.jLabel40.setText("Préstamo exitoso para < " + prestamoUser +  "> con el reglamento de la ley: \n" + prestamoLaw);
                 cantPrestamos++; 
                 tempUser.setPrestamos(cantPrestamos); 
             }
@@ -1717,7 +1778,7 @@ public class NewJFrame extends javax.swing.JFrame {
             prestamoLaw = tempLaw.getLey();
             prestamoSuccess = tempLaw.prestamoLey();
             if (prestamoSuccess) {
-                this.jLabel40.setText("Préstamo exitoso para < " + prestamoUser +  "> con la ley: " + prestamoLaw);
+                this.jLabel40.setText("Préstamo exitoso para < " + prestamoUser +  "> con la ley:\n " + prestamoLaw);
                 cantPrestamos++; 
                 tempUser.setPrestamos(cantPrestamos);
             }
@@ -1731,7 +1792,7 @@ public class NewJFrame extends javax.swing.JFrame {
             prestamoLaw = tempLaw.getLey();
             prestamoSuccess = tempLaw.prestamoLote();
             if (prestamoSuccess) {
-                this.jLabel40.setText("Préstamo exitoso para < " + prestamoUser +  "> con lote de ley : " + prestamoLaw);
+                this.jLabel40.setText("Préstamo exitoso para < " + prestamoUser +  "> con lote de ley \n: " + prestamoLaw);
                 cantPrestamos++; 
                 tempUser.setPrestamos(cantPrestamos);
             }
@@ -1740,16 +1801,22 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         }
        }
-       else{
+        else{
            this.jLabel40.setText("Ha excedido el máximo de préstamos por usuario");
-       }
+        }
+      }
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
         int menuUser = jComboBox6.getSelectedIndex();
         int specificUser = jComboBox7.getSelectedIndex();
-        int selectedLaw = jComboBox8.getSelectedIndex();
+        int selectedLaw = jComboBox8.getSelectedIndex();        
+        
+         if( (jComboBox6.getSelectedIndex() == -1) || (jComboBox7.getSelectedIndex() == -1) || (jComboBox8.getSelectedIndex() == -1) )  {
+              this.errorBox("Missing data to operate", "Empty fields found");
+         }
+        else {   
         tempUser = (Usuarios) this.usersList.get(menuUser);
         tempLaw = (Leyes) this.lawList.get(selectedLaw);
         String prestamoUser;
@@ -1757,7 +1824,7 @@ public class NewJFrame extends javax.swing.JFrame {
         int cantPrestamos  = tempUser.getPrestamos();
         boolean devolucionSuccess;
         
-        if (cantPrestamos<3) {
+            if (cantPrestamos<3) {
             if (specificUser == 0) {
                 prestamoUser = tempUser.getParlamentario();
             }
@@ -1770,7 +1837,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 prestamoLaw = tempLaw.getDescripcion();
                 devolucionSuccess = tempLaw.devolverReglamento();
                 if (devolucionSuccess) {
-                    this.jLabel44.setText("Devolución exitosa para < " + prestamoUser +  "> con el reglamento de la ley: " + prestamoLaw);
+                    this.jLabel44.setText("Devolución exitosa para < " + prestamoUser +  "> con el reglamento de la ley:\n " + prestamoLaw);
                     cantPrestamos--; 
                     tempUser.setPrestamos(cantPrestamos);
                 }
@@ -1807,7 +1874,8 @@ public class NewJFrame extends javax.swing.JFrame {
         }
         else {
             this.jLabel44.setText("El usuario seleccionado tiene mas de dos leyes en préstamo");
-        }
+        }  
+       }
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jComboBox6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox6ItemStateChanged
@@ -1815,6 +1883,7 @@ public class NewJFrame extends javax.swing.JFrame {
         int selectedItemIndex = jComboBox6.getSelectedIndex();
         jComboBox7.removeAllItems();
         jComboBox7.addItem("");
+        jLabel44.setText("Devoluciones: ");
         jComboBox7.setSelectedIndex(-1);
         if (selectedItemIndex >= 0) {
             tempUser = (Usuarios) this.usersList.get(selectedItemIndex);
@@ -1890,7 +1959,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private void jRadioButton6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButton6ItemStateChanged
         // TODO add your handling code here:
         boolean seleccion;
-        seleccion = jRadioButton5.isSelected();
+        seleccion = jRadioButton6.isSelected();
         //this.groupDevoluciones.clearSelection();
         if (seleccion) {
 
@@ -1952,6 +2021,9 @@ public class NewJFrame extends javax.swing.JFrame {
         this.jComboBox5.removeAllItems();
         this.jComboBox5.addItem("");
         this.jLabel40.setText("Préstamos");
+        this.jRadioButton1.setSelected(false);
+        this.jRadioButton2.setSelected(false);
+        this.jRadioButton3.setSelected(false);
         this.PrestamosFrame.setVisible(false);
     }//GEN-LAST:event_jButton18ActionPerformed
 
@@ -1964,6 +2036,9 @@ public class NewJFrame extends javax.swing.JFrame {
         this.jComboBox8.removeAllItems();
         this.jComboBox8.addItem("");
         this.jLabel44.setText("Préstamos");
+        this.jRadioButton4.setSelected(false);
+        this.jRadioButton5.setSelected(false);
+        this.jRadioButton6.setSelected(false);
         this.DevolucionesFrame.setVisible(false);
     }//GEN-LAST:event_jButton19ActionPerformed
 
@@ -1975,11 +2050,11 @@ public class NewJFrame extends javax.swing.JFrame {
             if(i+1<tamanio)
             jComboBox1.removeItemAt(i);
             if( (i+1)>= tamanio) {
-                jComboBox1.addItem("");
-                jComboBox1.setSelectedIndex(0);
-                jComboBox1.removeItemAt(0);
+                jComboBox1.addItem("");                
             }
         }
+        jComboBox1.setSelectedIndex(-1);
+        jComboBox1.removeItemAt(0);
         this.clearModify();
         this.jComboBox1.setMaximumRowCount(3);
     }//GEN-LAST:event_jButton20ActionPerformed
@@ -2041,13 +2116,8 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
         // TODO add your handling code here:
-               String Descrip="Sysley es un sistema dinamico creado con la utilidad de facilitar\n la implementacion de leyes en guatemala dando las funcionalidades"
-                       + "n\nnecesarias al usuario para la creacion de parlamentos\n leyes y reglamentos de la constitucion del estado de Guatemala.";
-        
-        jTextPane1.setText(Descrip);
-        jLabel56.setText("Alexander Rodriguez C. 1053016 ");
-        jLabel57.setText("Felipe Gonzalez C.1252616");        
-        this.AboutFrame.setVisible(true); 
+        About forma = new About(); 
+        forma.show();
     }//GEN-LAST:event_jMenu4MouseClicked
 
     /**
@@ -2086,7 +2156,6 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JInternalFrame AboutFrame;
     private javax.swing.JInternalFrame CreateLawFrame;
     private javax.swing.JInternalFrame CreateUserFrame;
     private javax.swing.JInternalFrame DeleteLawFrame;
@@ -2096,7 +2165,6 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JInternalFrame ModifyLawFrame;
     private javax.swing.JInternalFrame ModifyUserFrame;
     private javax.swing.JInternalFrame PrestamosFrame;
-    private javax.swing.JLabel Sysley;
     private javax.swing.JLabel TotalLawsLabel;
     private javax.swing.JLabel TotalLawsLabel1;
     private javax.swing.JLabel TotalLawsLabel2;
@@ -2188,10 +2256,6 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
-    private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -2220,7 +2284,6 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
@@ -2255,7 +2318,6 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField jTextFieldLaw;
-    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JToggleButton jToggleButton9;
     // End of variables declaration//GEN-END:variables
 
